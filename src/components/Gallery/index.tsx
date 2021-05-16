@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyledButton, StyledGallery, StyledPics } from "./styled";
 
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 import Loading from "./../Loading";
 import { connect } from "react-redux";
 import { getACategory } from "./../../redux/modules/cats/getACategory/action";
@@ -65,7 +66,9 @@ const Gallery: React.SFC<GalleryProps> = ({
 
   return (
     <StyledGallery>
-      <h1>{catsImages && catsImages[0]?.categories[0]?.name}</h1>
+      <h1 className="catsImages">
+        {catsImages && catsImages[0]?.categories[0]?.name}
+      </h1>
       <StyledPics>
         {catsImages?.map((image) => (
           <div key={image.id}>

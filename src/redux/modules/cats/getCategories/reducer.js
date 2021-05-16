@@ -1,6 +1,6 @@
 import * as actionTypes from "../../../actionTypes";
 
-const initialState = {
+export const initialState = {
   loading: false,
   data: null,
   error: null,
@@ -23,6 +23,7 @@ export const getCategoriesReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        error: action.payload,
       };
     default:
       return state;
